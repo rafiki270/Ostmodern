@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  OSTDataCollectionView.h
 //  Ostmodern
 //
 //  Created by Ondrej Rafaj on 22/01/2016.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface OSTDataCollectionView : UICollectionView
 
 @end
-

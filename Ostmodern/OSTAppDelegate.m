@@ -6,14 +6,28 @@
 //  Copyright © 2016 Ridiculous Innovations. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "OSTAppDelegate.h"
+#import "OSTInteractor.h"
 
-@interface AppDelegate ()
+
+@interface OSTAppDelegate ()
 
 @end
 
-@implementation AppDelegate
 
+@implementation OSTAppDelegate
+
+
+#pragma mark Accessors
+
+- (OSTInteractor *)interactor {
+    if (!_interactor) {
+        _interactor = [[OSTInteractor alloc] init];
+    }
+    return _interactor;
+}
+
+#pragma mark Application delegate methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -41,5 +55,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

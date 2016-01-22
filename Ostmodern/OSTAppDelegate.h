@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@class OSTInteractor;
+
+@interface OSTAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) OSTInteractor *interactor;
 
 @property (strong, nonatomic) UIWindow *window;
 
