@@ -11,6 +11,7 @@
 #import "OSTInteractor.h"
 #import "OSTObjectEntity.h"
 #import "OSTDataCollectionView.h"
+#import "OSTEmptyCollectionViewCell.h"
 #import "OSTDataCollectionViewCell.h"
 
 
@@ -39,8 +40,11 @@
     if (!_collectionView) {
         UICollectionViewLayout *layout = [[UICollectionViewLayout alloc] init];
         _collectionView = [[OSTDataCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        [_collectionView registerClass:[OSTEmptyCollectionViewCell class] forCellWithReuseIdentifier:@"emptyCellIdentifier"];
+        [_collectionView registerClass:[OSTDataCollectionViewCell class] forCellWithReuseIdentifier:@"dataCellIdentifier"];
         [_collectionView setDelegate:self];
         [_collectionView setDataSource:self];
+        [_collectionView setBackgroundColor:[UIColor whiteColor]];
     }
     return _collectionView;
 }
@@ -63,7 +67,12 @@
         UIAlertController *alert = [[UIAlertController alloc] init];
         [alert setTitle:NSLocalizedString(@"Connection error", @"Network request error")];
         [alert setMessage:error.localizedDescription];
+        [alert addAction:action];
         [alert setPreferredAction:action];
+        
+        [weakSelf presentViewController:alert animated:YES completion:^{
+            
+        }];
     }];
 }
 
@@ -82,16 +91,35 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.data.count;
+    if (self.data.count == 0) {
+        return 1;
+    }
+    else {
+        return self.data.count;
+    }
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    OSTDataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView emptyCellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    OSTEmptyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"emptyCellIdentifier" forIndexPath:indexPath];
+    return cell;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView dataCellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    OSTDataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCellIdentifier" forIndexPath:indexPath];
     
     OSTObjectEntity *object = self.data[indexPath.row];
     [cell setObject:object];
     
     return cell;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.data.count == 0) {
+        return [self collectionView:collectionView emptyCellForItemAtIndexPath:indexPath];
+    }
+    else {
+        return [self collectionView:collectionView dataCellForItemAtIndexPath:indexPath];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

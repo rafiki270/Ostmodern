@@ -15,6 +15,8 @@
 		15C869C61C526CC000148F58 /* OSTObjectEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C869C51C526CC000148F58 /* OSTObjectEntity.m */; };
 		15C869C91C5279D700148F58 /* OSTDataCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C869C81C5279D700148F58 /* OSTDataCollectionView.m */; };
 		15C869CD1C527A4F00148F58 /* OSTDataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C869CC1C527A4F00148F58 /* OSTDataCollectionViewCell.m */; };
+		15C869E71C5292EE00148F58 /* OSTEmptyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C869E61C5292EE00148F58 /* OSTEmptyCollectionViewCell.m */; };
+		15C869EB1C52943F00148F58 /* OSTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C869EA1C52943F00148F58 /* OSTCollectionViewCell.m */; };
 		15E224561C525DD500218449 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E224551C525DD500218449 /* main.m */; };
 		15E224591C525DD500218449 /* OSTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E224581C525DD500218449 /* OSTAppDelegate.m */; };
 		15E2245C1C525DD500218449 /* OSTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E2245B1C525DD500218449 /* OSTHomeViewController.m */; };
@@ -57,6 +59,11 @@
 		15C869C81C5279D700148F58 /* OSTDataCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTDataCollectionView.m; sourceTree = "<group>"; };
 		15C869CB1C527A4F00148F58 /* OSTDataCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTDataCollectionViewCell.h; sourceTree = "<group>"; };
 		15C869CC1C527A4F00148F58 /* OSTDataCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTDataCollectionViewCell.m; sourceTree = "<group>"; };
+		15C869E11C5290FD00148F58 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		15C869E51C5292EE00148F58 /* OSTEmptyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTEmptyCollectionViewCell.h; sourceTree = "<group>"; };
+		15C869E61C5292EE00148F58 /* OSTEmptyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTEmptyCollectionViewCell.m; sourceTree = "<group>"; };
+		15C869E91C52943F00148F58 /* OSTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSTCollectionViewCell.h; sourceTree = "<group>"; };
+		15C869EA1C52943F00148F58 /* OSTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSTCollectionViewCell.m; sourceTree = "<group>"; };
 		15E224511C525DD500218449 /* Ostmodern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ostmodern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15E224551C525DD500218449 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15E224571C525DD500218449 /* OSTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSTAppDelegate.h; sourceTree = "<group>"; };
@@ -198,15 +205,44 @@
 		15C869CA1C527A3800148F58 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				15C869E41C5292D500148F58 /* Empty cell */,
+				15C869E31C5292CD00148F58 /* Data cell */,
+				15C869E81C52942E00148F58 /* Basic */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		15C869E31C5292CD00148F58 /* Data cell */ = {
+			isa = PBXGroup;
+			children = (
 				15C869CB1C527A4F00148F58 /* OSTDataCollectionViewCell.h */,
 				15C869CC1C527A4F00148F58 /* OSTDataCollectionViewCell.m */,
 			);
-			name = Cells;
+			name = "Data cell";
+			sourceTree = "<group>";
+		};
+		15C869E41C5292D500148F58 /* Empty cell */ = {
+			isa = PBXGroup;
+			children = (
+				15C869E51C5292EE00148F58 /* OSTEmptyCollectionViewCell.h */,
+				15C869E61C5292EE00148F58 /* OSTEmptyCollectionViewCell.m */,
+			);
+			name = "Empty cell";
+			sourceTree = "<group>";
+		};
+		15C869E81C52942E00148F58 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				15C869E91C52943F00148F58 /* OSTCollectionViewCell.h */,
+				15C869EA1C52943F00148F58 /* OSTCollectionViewCell.m */,
+			);
+			name = Basic;
 			sourceTree = "<group>";
 		};
 		15E224481C525DD400218449 = {
 			isa = PBXGroup;
 			children = (
+				15C869E11C5290FD00148F58 /* README.md */,
 				15E224531C525DD500218449 /* Ostmodern */,
 				15E2246D1C525DD500218449 /* OstmodernTests */,
 				15E224781C525DD500218449 /* OstmodernUITests */,
@@ -447,6 +483,8 @@
 				15C869B91C5262B100148F58 /* OSTConfig.m in Sources */,
 				15E2245C1C525DD500218449 /* OSTHomeViewController.m in Sources */,
 				15E224591C525DD500218449 /* OSTAppDelegate.m in Sources */,
+				15C869EB1C52943F00148F58 /* OSTCollectionViewCell.m in Sources */,
+				15C869E71C5292EE00148F58 /* OSTEmptyCollectionViewCell.m in Sources */,
 				15E224561C525DD500218449 /* main.m in Sources */,
 				15C869B51C52626E00148F58 /* OSTInteractor.m in Sources */,
 				15C869BE1C52632B00148F58 /* OSTViewController.m in Sources */,

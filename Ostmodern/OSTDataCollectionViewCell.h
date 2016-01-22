@@ -6,12 +6,12 @@
 //  Copyright © 2016 Ridiculous Innovations. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OSTCollectionViewCell.h"
 
 
 @class OSTObjectEntity;
 
-@interface OSTDataCollectionViewCell : UICollectionViewCell
+@interface OSTDataCollectionViewCell : OSTCollectionViewCell
 
 @property (nonatomic, strong) OSTObjectEntity *object;
 
